@@ -1,0 +1,97 @@
+:root{
+    --gamewidth: 400px;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background: black;
+}
+
+#holder{
+    width: var(--gamewidth);
+    height: 545px;
+    margin: auto;
+    margin-top: 0;
+    position: relative;
+}
+
+h1{
+    font-family: 'Black Ops One', cursive;
+}
+
+p{
+    font-family: 'Genos', sans-serif; 
+}
+
+#startGameBtn, #instBtn{
+    font-family: 'Aldrich', sans-serif; 
+}
+
+#scoreDisplay, #highscoreDisplay{
+    font-family: 'Holtwood One SC', serif; 
+    visibility: hidden;
+}
+
+#board{
+    background-image: url("/images/bg.png");
+    background-size: 400px 535px;
+    overflow: hidden;
+}
+
+#spikes{
+    background-image: url("/images/spike.png");
+    background-repeat: space repeat-x;
+    background-size: 25px 40px;
+    visibility: hidden;
+}
+
+#platform{
+    background-image: url("/images/platform.png");
+    background-repeat: space;
+    background-size: 25px 25px;
+    visibility: hidden;
+}
+
+#character{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    position: relative;
+    top: 370px;
+    left: 190px;
+    z-index: 1000000; /*to make sure it is always on top*/
+    visibility: hidden;
+}
+
+.block1{
+    height: 20px;
+    background-image: url("/images/platform.png");
+    background-repeat: space repeat-x;
+    background-size: 25px 25px;
+    position: relative;
+    top: 100px;
+    margin-top: -20px;
+}
+
+.block2{
+    height: 20px;
+    background-image: url("/images/platform.png");
+    background-repeat: space repeat-x;
+    background-size: 25px 25px;
+    position: relative;
+    top: 100px;
+    margin-top: -20px;
+}
+
+.hole{
+    height: 20px;
+    background-color: transparent;
+    position: relative;
+    top: 100px;
+    margin-top: -20px;
+}
+
+#left img, #right img{
+    pointer-events: none;
+}
