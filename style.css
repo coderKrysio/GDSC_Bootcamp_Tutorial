@@ -39,6 +39,11 @@ p{
     overflow: hidden;
 }
 
+#game{
+    width: var(--gamewidth);
+    height: 450px;
+}
+
 #spikes{
     background-image: url("/images/spike.png");
     background-repeat: space repeat-x;

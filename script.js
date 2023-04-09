@@ -51,13 +51,13 @@ function init(){
 }
 
 //music set up
-var music = new Audio("bgm.mp3");
+var music = new Audio("/audio/bgm.mp3");
 music.addEventListener('ended', () => {
     this.currentTime = 0;
     this.play();
 }, false); //music loop
-var dropSound = new Sound('drop.mp3', 10, 1.0);
-var gameoverSound = new Sound('gameover.mp3');
+var dropSound = new Sound('/audio/drop.mp3', 10, 1.0);
+var gameoverSound = new Sound('/audio/gameover.mp3');
 
 function moveLeft(){
     var left = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
