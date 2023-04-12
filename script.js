@@ -22,7 +22,6 @@ var charSpeed = 2;
 var over = false;
 var blocks;
 
-
 function moveLeft(){
     var left = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
     if(left > 0){
