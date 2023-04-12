@@ -12,17 +12,8 @@ Souces of audio: Opengameart-->
     <!--Website icon-->
     <link rel="shortcut icon" type="image/png" href="/images/icon.png">
 
-    <!--Tailwind css and style sheet-->
+    <!--Style sheet-->
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"/>
-
-    <!--Google Fonts-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Genos:wght@500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap" rel="stylesheet">
 </head>
 <body>    
     <div id="holder">
@@ -31,24 +22,24 @@ Souces of audio: Opengameart-->
             <!-- game components -->
             
             <!-- spikes: this is the row that the character has to avoid touching -->
-            <div class="h-10 w-100" id="spikes"></div>
+            <div id="spikes"></div>
 
             <!-- game board: this is holding all the game elements -->
-            <div class="w-100 h-511" id="board">                
+            <div id="board">                
                 <!-- game: it holds the character and the blocks of the game -->
-                
+
                 <!-- there are two blocks and one hole
                     blocks are platforms that are generated after some time interval
                     hole is the space that is present between two blocks and allows the character to pass through it along with scoring one point
                 -->
                 <div id="game">
-                    <div class="bg-black" id="character"></div>
+                    <div id="character"></div>
                 </div>                        
             </div>
 
             <!-- this is just the base that we have added the game console
                 just to add the confuse the user ki from where the next hole is going to extend from -->
-                <div class="w-100 h-5" id="platform"></div>
+                <div id="platform"></div>
         </div>
     </div>
 

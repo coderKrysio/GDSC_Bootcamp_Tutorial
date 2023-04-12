@@ -132,7 +132,7 @@ function startGame(){
             let iblock = document.getElementById("block"+current);
             let ihole = document.getElementById("hole"+current);
 
-            //getting the blocks and hole 's respective position
+            //getting the blocks and hole's respective position
             let iblockTop = parseFloat(window.getComputedStyle(iblock).getPropertyValue("top"));
             let iholeLeft = parseFloat(window.getComputedStyle(ihole).getPropertyValue("left"));
 
@@ -153,7 +153,7 @@ function startGame(){
                 drop++;
 
                 //how smoothly the ball will be dropped near the hole and checks whether the ball is on the hole
-                if(iholeLeft <= characterLeft && iholeLeft + 40 >= characterLeft){
+                if(iholeLeft <= characterLeft && iholeLeft + 38 >= characterLeft){
                     drop = 0;
                     var diff = Math.floor(parseInt(ihole.style.top) - speed) - (characterTop - charSpeed);
                     temp++;
