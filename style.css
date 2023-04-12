@@ -10,32 +10,22 @@ body{
 
 #holder{
     width: var(--gamewidth);
-    height: 545px;
-    margin: auto;
-    margin-top: 0;
-    position: relative;
+    height: 511px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-h1{
-    font-family: 'Black Ops One', cursive;
-}
-
-p{
-    font-family: 'Genos', sans-serif; 
-}
-
-#startGameBtn, #instBtn{
-    font-family: 'Aldrich', sans-serif; 
-}
-
-#scoreDisplay, #highscoreDisplay{
-    font-family: 'Holtwood One SC', serif; 
-    visibility: hidden;
+#gameboard{
+    background-image: url("/images/bg.png");
+    background-size: 400px 535px;
 }
 
 #board{
-    background-image: url("/images/bg.png");
-    background-size: 400px 535px;
     overflow: hidden;
 }
 
@@ -48,14 +38,13 @@ p{
     background-image: url("/images/spike.png");
     background-repeat: space repeat-x;
     background-size: 25px 40px;
-    visibility: hidden;
 }
 
 #platform{
-    background-image: url("/images/platform.png");
-    background-repeat: space;
+    background-image: url('/images/platform.png');
+    background-repeat: space repeat-x;
     background-size: 25px 25px;
-    visibility: hidden;
+    overflow: hidden;
 }
 
 #character{
@@ -66,37 +55,23 @@ p{
     top: 370px;
     left: 190px;
     z-index: 1000000; /*to make sure it is always on top*/
-    visibility: hidden;
 }
 
-.block1{
+.block{
+    width: 400px;
     height: 20px;
-    background-image: url("/images/platform.png");
-    background-repeat: space repeat-x;
-    background-size: 25px 25px;
-    position: relative;
-    top: 100px;
-    margin-top: -20px;
-}
-
-.block2{
-    height: 20px;
-    background-image: url("/images/platform.png");
-    background-repeat: space repeat-x;
-    background-size: 25px 25px;
+    background: #31dbea;
     position: relative;
     top: 100px;
     margin-top: -20px;
 }
 
 .hole{
+    width: 40px;
     height: 20px;
-    background-color: transparent;
     position: relative;
     top: 100px;
+    background: white;
     margin-top: -20px;
 }
 
-#left img, #right img{
-    pointer-events: none;
-}
