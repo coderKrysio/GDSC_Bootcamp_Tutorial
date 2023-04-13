@@ -1,68 +1,31 @@
-//scoring elements with some UI elements as well
-
-const gameBoard = document.querySelector('#gameBoard');
-
-//game characters
-var platform = document.querySelector('#platform');
-var spikes = document.querySelector('#spikes');
+//game elements
 var character = document.getElementById("character");
-var characterRadius = parseInt(window.getComputedStyle(character).getPropertyValue("width"));
 var game = document.getElementById("game");
 
 //game variables
-var gamewidth = parseInt(window.getComputedStyle(game).getPropertyValue("width"));
 var interval;
-var both = 0;
+var both = 0; //for avoiding pressing of both keys at the same time
 var counter=0;
 var currentBlocks = [];
 var speed = 0.5;
 var score = 0;
 var temp = 0;
 var charSpeed = 2;
-var over = false;
 var blocks;
 
 function moveLeft(){
     var left = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
-    if(left > 0){
+    if(left > 0){ //limits the ball path
         character.style.left = left - charSpeed + "px";
     }
 }
 
 function moveRight(){
     var left = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
-    if(left < (gamewidth - characterRadius)){
+    if(left < 380){ //limits the ball path
         character.style.left = left + charSpeed + "px";
     }
 }
-
-addEventListener('mouseup', () => {
-    clearInterval(interval);
-    both = 0;
-})
-
-addEventListener('touchstart', function(event) {
-    var touch = event.touches[0];
-    var posx = touch.pageX;
-    var posy = touch.pageY;
-    var ele = document.elementFromPoint(posx, posy);
-    var id = ele.getAttribute("id");
-    
-    if(both == 0){
-        both++;
-        if(id == "left"){
-            interval = setInterval(moveLeft,1);
-        }
-        if(id == "right"){
-            interval = setInterval(moveRight,1);
-        }
-    }
-});
-
-addEventListener('touchend', () => {
-    clearInterval(interval);
-    both = 0;
-})
 
 addEventListener('keydown', function (event) {
     if(both == 0){
@@ -81,9 +44,8 @@ addEventListener("keyup", () => {
     both = 0;
 });
 
-
 function startGame(){
-    blocks = setInterval(() => {
+    setInterval(() => {
         var blockLast = document.getElementById("block"+(counter-1));
         var holeLast = document.getElementById("hole"+(counter-1));
 
@@ -141,8 +103,7 @@ function startGame(){
             ihole.style.top = iblockTop - speed + "px";
 
             //removing them from the screen
-            if(iblockTop < -25)
-            {
+            if(iblockTop < -25){
                 currentBlocks.shift();
                 iblock.remove();
                 ihole.remove();
@@ -153,21 +114,26 @@ function startGame(){
                 drop++;
 
                 //how smoothly the ball will be dropped near the hole and checks whether the ball is on the hole
-                if(iholeLeft <= characterLeft && iholeLeft + 38 >= characterLeft){
+                if(iholeLeft <= characterLeft && iholeLeft + 20 >= characterLeft){
                     drop = 0;
+                    
+                    //condition to increase score
                     var diff = Math.floor(parseInt(ihole.style.top) - speed) - (characterTop - charSpeed);
                     temp++;
 
                     if((diff <= (charSpeed + 1)) && (temp >= (7 - (charSpeed - 1)))){
                         score++;
                         temp = 0;
-
+                        
+                        //increasing score every five point
                         for(var i=5; i<=score; i+=5){
                             if((score%5 == 0) && (score >= i) && (score < (i+5))){
                                 speed = speed + 0.1;
                             }
                         }
-                        if(score%50 == 0){
+
+                        //increasing character speed after every 25 points
+                        if(score%25 == 0){
                             charSpeed++;
                         }
                     }
